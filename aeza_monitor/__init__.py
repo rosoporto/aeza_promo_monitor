@@ -1,0 +1,1 @@
+"""AEZA promo monitor package."""

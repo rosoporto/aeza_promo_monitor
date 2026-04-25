@@ -1,0 +1,19 @@
+services:
+  aeza-monitor:
+    build: .
+    container_name: aeza-monitor
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      AEZA_CHECK_INTERVAL: ${AEZA_CHECK_INTERVAL}
+      AEZA_USE_TELEGRAM: ${AEZA_USE_TELEGRAM}
+      AEZA_TELEGRAM_BOT_TOKEN: ${AEZA_TELEGRAM_BOT_TOKEN}
+      AEZA_TELEGRAM_CHAT_ID: ${AEZA_TELEGRAM_CHAT_ID}
+      AEZA_LOG_LEVEL: ${AEZA_LOG_LEVEL}
+      AEZA_STATE_FILE: ${AEZA_STATE_FILE}
+    volumes:
+      - aeza-monitor-data:/data
+
+volumes:
+  aeza-monitor-data:
